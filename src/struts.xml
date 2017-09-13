@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!--开启动态方法调用-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <!-- 修改Struts中的defalut.properties定义的常量值 -->
+    <constant name="struts.devMode" value="true"></constant>
+    <!--  修改 Struts 中默认的后缀名 struts.action.extension
+     创建文件 struts.properties struts.action.extension=abc 也能修改后缀名  -->
+    <constant name="struts.action.extension" value="do"></constant>
+    <package name="p1" extends="struts-default">
+     <action name="register" class="com.ithema.web.action.UserAction" method="register">
+ <result type="redirect" >/success.jsp</result><!--注册成功后重定向跳转的视图-->
+         <result name="exists">/message.jsp</result> <!--已存在用户跳转的视图-->
+   <!--出现问题 返回-->
+         <result name="input">/register.jsp</result>
+     </action>
+    </package>
+</struts>
